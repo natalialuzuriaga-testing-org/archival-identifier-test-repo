@@ -1,116 +1,69 @@
-# archival-identifier
+# {{ cookiecutter.project_name }}
 
-A script to identify repositories for archival
+{{ cookiecutter.project_description }}
 
 ## About the Project
 
-**{project statement}**
+<!-- This should be a longer-form description of the project. It can include history, background, details, problem statements, links to design documents or other supporting materials, or any other information/context that a user or contributor might be interested in. -->
 
-<!---
-### Project Vision
-**{project vision}** -->
+**{project statement}**
 
 <!--
 ### Project Mission
-**{project mission}** -->
+**{project mission}**
+Provide the core mission and objectives driving this project.-->
 
 <!--
 ### Agency Mission
-TODO: Good to include since this is an agency-led project -->
+TODO: Recommended to include since this is an agency-led project
+Provide the mission of the agency and how this project aligns. -->
 
 <!--
 ### Team Mission
-TODO: Good to include since this is an agency-led project -->
-
-### Usage
-Create a new GitHub workflow file (e.g., `.github/workflows/archival-identifier.yml`) or add the following to an existing GitHub Actions workflow:
-
-```
-name: Identify repositories for archival
-on:
-  workflow_dispatch:
-    inputs:
-      start_date:
-        description: 'Start date for historical data (YYYY-MM-DD) - required, e.g., 2026-01-01'
-        required: true
-        type: string
-      end_date:
-        description: 'End date for historical data (YYYY-MM-DD) - defaults to today if not provided'
-        required: false
-        default: ''
-        type: string
-      org_name:
-        description: 'GitHub organization name'
-        required: true
-
-permissions:
-  contents: write
-  pull-requests: write
-  issues: write
-
-jobs:
-  run-archival-identifier:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
-      - name: Run archival-identifier
-        id: archive
-        uses: DSACMS/archival-identifier@main
-        with:
-          START_DATE: ${{ inputs.start_date }}
-          END_DATE: ${{ inputs.end_date }}
-          ORG_NAME: ${{ inputs.org_name }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-```
-### Inputs
-| Input | Required | Description |
-| :---- |:---------|:------------|
-| `start_date` | Yes | 'Start date for historical data (YYYY-MM-DD) - required, e.g., 2026-01-01' |
-| `end_date` | No | End of date range defaults to today if omitted |
-| `org_name` | Yes | Name of GitHub organization to scan|
-| `GITHUB_TOKEN` | Yes | Automatically provided by GitHub Actions - no setup needed |
+TODO: Recommended to include since this is an agency-led project
+Provide the team's mission and how they work together. -->
 
 ## Core Team
 
 A list of core team members responsible for the code and documentation in this repository can be found in [COMMUNITY.md](COMMUNITY.md).
 
+<!--
 ## Repository Structure
 
-<!-- TODO: Including the repository structure helps viewers quickly understand the project layout. Using the "tree -d" command can be a helpful way to generate this information, but, be sure to update it as the project evolves and changes over time. -->
-
-```plaintext
-.
-```
-
+TODO: Including the repository structure helps viewers quickly understand the project layout. Using the "tree -d" command can be a helpful way to generate this information, but, be sure to update it as the project evolves and changes over time.
 
 **{list directories and descriptions}**
 
-<!-- TODO: Add a 'table of contents" for your documentation. Tier 0/1 projects with simple README.md files without many sections may or may not need this, but it is still extremely helpful to provide "bookmark" or "anchor" links to specific sections of your file to be referenced in tickets, docs, or other communication channels. -->
+TODO: Add a 'table of contents" for your documentation. Tier 0/1 projects with simple README.md files without many sections may or may not need this, but it is still extremely helpful to provide "bookmark" or "anchor" links to specific sections of your file to be referenced in tickets, docs, or other communication channels.
 
 **{list of .md at top directory and descriptions}**
 
+-->
+
+<!--
 # Development and Software Delivery Lifecycle
-
 The following guide is for members of the project team who have access to the repository as well as code contributors. The main difference between internal and external contributions is that external contributors will need to fork the project and will not be able to merge their own pull requests. For more information on contributing, see: [CONTRIBUTING.md](./CONTRIBUTING.md).
+-->
 
+<!--
 ## Local Development
 
-<!--- TODO - with example below:
+TODO - with example below:
 This project is monorepo with several apps. Please see the [api](./api/README.md) and [frontend](./frontend/README.md) READMEs for information on spinning up those projects locally. Also see the project [documentation](./documentation) for more info.
 -->
 
+<!--
 ## Coding Style and Linters
 
-<!-- TODO - Add the repo's linting and code style guidelines -->
+TODO - Add the repo's linting and code style guidelines
 
 Each application has its own linting and testing guidelines. Lint and code tests are run on each commit, so linters and tests should be run locally before committing.
+-->
 
+<!--
 ## Branching Model
 
-<!--- TODO - with example below:
+TODO - with example below:
 This project follows [trunk-based development](https://trunkbaseddevelopment.com/), which means:
 
 * Make small changes in [short-lived feature branches](https://trunkbaseddevelopment.com/short-lived-feature-branches/) and merge to `main` frequently.
@@ -124,30 +77,29 @@ This project uses **continuous deployment** using [Github Actions](https://githu
 Pull-requests are merged to `main` and the changes are immediately deployed to the development environment. Releases are created to push changes to production.
 -->
 
+<!--
 ## Contributing
-
 Thank you for considering contributing to an Open Source project of the US Government! For more information about our contribution guidelines, see [CONTRIBUTING.md](CONTRIBUTING.md).
+-->
 
+<!--
 ## Community
-
-The archival-identifier team is taking a community-first and open source approach to the product development of this tool. We believe government software should be made in the open and be built and licensed such that anyone can download the code, run it themselves without paying money to third parties or using proprietary software, and use it as they will.
+The {{ cookiecutter.project_name }} team is taking a community-first and open source approach to the product development of this tool. We believe government software should be made in the open and be built and licensed such that anyone can download the code, run it themselves without paying money to third parties or using proprietary software, and use it as they will.
 
 We know that we can learn from a wide variety of communities, including those who will use or will be impacted by the tool, who are experts in technology, or who have experience with similar technologies deployed in other spaces. We are dedicated to creating forums for continuous conversation and feedback to help shape the design and development of the tool.
 
 We also recognize capacity building as a key part of involving a diverse open source community. We are doing our best to use accessible language, provide technical and process documents, and offer support to community members with a wide variety of backgrounds and skillsets.
-
-### Community Guidelines
-
-Principles and guidelines for participating in our open source community are can be found in [COMMUNITY.md](COMMUNITY.md). Please read them before joining or starting a conversation in this repo or one of the channels listed below. All community members and participants are expected to adhere to the community guidelines and code of conduct when participating in community spaces including: code repositories, communication channels and venues, and events.
-
-<!--
-## Governance
-Information about how the archival-identifier community is governed may be found in [GOVERNANCE.md](GOVERNANCE.md).
 -->
 
-## Feedback
+<!--
+### Community Guidelines
+Principles and guidelines for participating in our open source community are can be found in [COMMUNITY.md](COMMUNITY.md). Please read them before joining or starting a conversation in this repo or one of the channels listed below. All community members and participants are expected to adhere to the community guidelines and code of conduct when participating in community spaces including: code repositories, communication channels and venues, and events.
+-->
 
+<!--
+## Feedback
 If you have ideas for how we can improve or add to our capacity building efforts and methods for welcoming people into our community, please let us know at **{contact email}**. If you would like to comment on the tool itself, please let us know by filing an **issue on our GitHub repository.**
+-->
 
 <!--
 ## Glossary
@@ -172,7 +124,7 @@ For more information about our Security, Vulnerability, and Responsible Disclosu
 
 A Software Bill of Materials (SBOM) is a formal record containing the details and supply chain relationships of various components used in building software.
 
-In the spirit of [Executive Order 14028 - Improving the Nation’s Cyber Security](https://www.gsa.gov/technology/it-contract-vehicles-and-purchasing-programs/information-technology-category/it-security/executive-order-14028), a SBOM for this repository is provided here: https://github.com/DSACMS/archival-identifier/network/dependencies.
+In the spirit of [Executive Order 14028 - Improving the Nation’s Cyber Security](https://www.gsa.gov/technology/it-contract-vehicles-and-purchasing-programs/information-technology-category/it-security/executive-order-14028), a SBOM for this repository is provided here: https://github.com/{{ cookiecutter.project_org }}/{{ cookiecutter.project_repo_name }}/network/dependencies.
 
 For more information and resources about SBOMs, visit: https://www.cisa.gov/sbom.
 
